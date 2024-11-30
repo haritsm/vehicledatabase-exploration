@@ -1,0 +1,6 @@
+vehicle_database:
+  outputs:
+    dev:
+      type: duckdb
+      path: 'data/vehicle_database.db'
+  target: dev
