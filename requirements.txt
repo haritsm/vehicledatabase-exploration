@@ -1,0 +1,4 @@
+requests>=
+dbt-core==
+dbt-duckdb==
+duckdb==1.1.3
