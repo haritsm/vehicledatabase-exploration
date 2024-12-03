@@ -10,10 +10,10 @@ dim_vehicle_brand as (
 
 , staging_vehicle_brand_model AS (
     SELECT DISTINCT
-        vmm.id AS model_id,
+        cast(vmm.id as string) AS model_id,
         vb.brand_id,
-        vmm.make AS brand_name,
-        vmm.model as model_name,
+        cast(vmm.make as string) AS brand_name,
+        cast(vmm.model as string) as model_name,
         vmm.is_model_electric as model_electric_flag,
         vmm.ingestion_timestamp,
         vmm.ingestion_date,

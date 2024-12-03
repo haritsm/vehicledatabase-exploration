@@ -1,0 +1,124 @@
+models:
+  - name: bronze_vehicle_make
+    description: The raw version of vehicle's make data
+    columns:
+      - name: id
+        description: '{{ doc("id") }}'
+      - name: make
+        description: '{{ doc("make") }}'
+      - name: ingestion_timestamp
+        description: '{{ doc("ingestion_timestamp") }}'
+      - name: ingestion_date
+        description: '{{ doc("ingestion_date") }}'
+
+  - name: bronze_vehicle_make_model
+    description: The raw version of vehicle's make and model data
+    columns:
+      - name: id
+        description: '{{ doc("id") }}'
+      - name: make
+        description: '{{ doc("make") }}'
+      - name: model
+        description: '{{ doc("model") }}'
+      - name: is_model_electric
+        description: '{{ doc("is_model_electric") }}'
+      - name: ingestion_timestamp
+        description: '{{ doc("ingestion_timestamp") }}'
+      - name: ingestion_date
+        description: '{{ doc("ingestion_date") }}'
+
+  - name: bronze_vehicle_value
+    description: The raw version of vehicle value data
+    columns:
+      - name: id
+        description: '{{ doc("id") }}'
+      - name: year
+        description: '{{ doc("year") }}'
+      - name: make
+        description: '{{ doc("make") }}'
+      - name: model
+        description: '{{ doc("model") }}'
+      - name: is_model_electric
+        description: '{{ doc("is_model_electric") }}'
+      - name: trim
+        description: '{{ doc("trim") }}'
+      - name: condition
+        description: '{{ doc("condition") }}'
+      - name: trade_in
+        description: '{{ doc("trade_in") }}'
+      - name: private_party
+        description: '{{ doc("private_party") }}'
+      - name: dealer_detail
+        description: '{{ doc("dealer_detail") }}'
+      - name: ingestion_timestamp
+        description: '{{ doc("ingestion_timestamp") }}'
+      - name: ingestion_date
+        description: '{{ doc("ingestion_date") }}'
+
+  - name: silver_dim_vehicle_brand
+    description: The presentation model of the vehicle's brand data, derived from bronze_vehicle_make
+    columns:
+      - name: brand_id
+        description: '{{ doc("brand_id") }}'
+      - name: brand_name
+        description: '{{ doc("brand_name") }}'
+      - name: ingestion_timestamp
+        description: '{{ doc("ingestion_timestamp") }}'
+      - name: ingestion_date
+        description: '{{ doc("ingestion_date") }}'
+      - name: load_timestamp
+        description: '{{ doc("load_timestamp") }}'
+  
+  - name: silver_dim_vehicle_brand_model
+    description: The presentation model of the vehicle's brand and model data, derived from bronze_vehicle_make and bronze_vehicle_make_model
+    columns:
+      - name: model_id
+        description: '{{ doc("model_id") }}'
+      - name: brand_id
+        description: '{{ doc("brand_id") }}'
+      - name: brand_name
+        description: '{{ doc("brand_name") }}'
+      - name: model_name
+        description: '{{ doc("model_name") }}'
+      - name: model_electric_flag
+        description: '{{ doc("model_electric_flag") }}'
+      - name: ingestion_timestamp
+        description: '{{ doc("ingestion_timestamp") }}'
+      - name: ingestion_date
+        description: '{{ doc("ingestion_date") }}'
+      - name: load_timestamp
+        description: '{{ doc("load_timestamp") }}'
+
+  - name: silver_fact_vehicle_value
+    description: The presentation model of the vehicle's value data, derived from bronze_vehicle_make_model and bronze_vehicle_value
+    columns:
+      - name: value_id
+        description: '{{ doc("value_id") }}'
+      - name: model_id
+        description: '{{ doc("model_id") }}'
+      - name: brand_id
+        description: '{{ doc("brand_id") }}'
+      - name: brand_name
+        description: '{{ doc("brand_name") }}'
+      - name: model_name
+        description: '{{ doc("model_name") }}'
+      - name: model_electric_flag
+        description: '{{ doc("model_electric_flag") }}'
+      - name: vehicle_registered_year
+        description: '{{ doc("vehicle_registered_year") }}'
+      - name: trim_name
+        description: '{{ doc("trim_name") }}'
+      - name: vehicle_condition_detail
+        description: '{{ doc("vehicle_condition_detail") }}'
+      - name: trade_in_price_amount
+        description: '{{ doc("trade_in_price_amount") }}'
+      - name: private_party_price_amount
+        description: '{{ doc("private_party_price_amount") }}'
+      - name: dealer_detail_price_amount
+        description: '{{ doc("dealer_detail_price_amount") }}'
+      - name: ingestion_timestamp
+        description: '{{ doc("ingestion_timestamp") }}'
+      - name: ingestion_date
+        description: '{{ doc("ingestion_date") }}'
+      - name: load_timestamp
+        description: '{{ doc("load_timestamp") }}'

@@ -13,17 +13,18 @@ dim_vehicle_brand_model as (
 
 , staging_vehicle_brand_value AS (
     select
-        bvv.id as value_id
+        cast(bvv.id as string) as value_id
         , dvbm.brand_id
         , dvbm.model_id
         , dvbm.brand_name
         , dvbm.model_name
         , dvbm.model_electric_flag
-        , bvv.year as vehicle_registered_year
-        , bvv.trim as trim_name
-        , bvv.trade_in as trade_in_price_amount
-        , bvv.private_party as private_party_price_amount
-        , bvv.dealer_detail as dealer_detail_price_amount
+        , cast(bvv.year as integer) as vehicle_registered_year
+        , cast(bvv.trim as string) trim_name
+        , cast(bvv.condition as string) as vehicle_condition_detail
+        , cast(bvv.trade_in as numeric) as trade_in_price_amount
+        , cast(bvv.private_party as numeric) as private_party_price_amount
+        , cast(bvv.dealer_detail as numeric) as dealer_detail_price_amount
         , bvv.ingestion_timestamp
         , bvv.ingestion_date
         , current_localtimestamp() as load_timestamp

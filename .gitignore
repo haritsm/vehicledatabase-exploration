@@ -1,0 +1,4 @@
+.dbt/
+dbt_workspace/vehicle_database/target/
+dbt_workspace/vehicle_database/dbt_packages/
+dbt_workspace/vehicle_database/logs/
