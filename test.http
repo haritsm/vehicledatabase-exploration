@@ -1,0 +1,1 @@
+curl -X POST -H "Content-Type: application/json" -d '{"query": "SELECT * FROM silver_fact_vehicle_value"}' http://localhost:8080/query
