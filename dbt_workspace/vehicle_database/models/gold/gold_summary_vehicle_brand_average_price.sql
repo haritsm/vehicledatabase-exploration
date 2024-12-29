@@ -20,8 +20,8 @@ raw_silver_fact_vehicle_value_data as (
 silver_fact_vehicle_value_data AS (
     SELECT
         vehicle_registered_year,
-        "brand_origin_country" as dimension_type,
-        brand_origin_country,
+        'brand origin country' as dimension_type,
+        brand_origin_country as dimension_value,
         AVG(trade_in_price_amount) AS avg_trade_in_price,
         AVG(private_party_price_amount) AS avg_private_party_price,
         AVG(dealer_detail_price_amount) AS avg_dealer_price
@@ -34,8 +34,8 @@ silver_fact_vehicle_value_data AS (
 
     SELECT
         vehicle_registered_year,
-        "vehicle_condition_detail" as dimension_type,
-        vehicle_condition_detail,
+        'vehicle condition detail' as dimension_type,
+        vehicle_condition_detail as dimension_value,
         AVG(trade_in_price_amount) AS avg_trade_in_price,
         AVG(private_party_price_amount) AS avg_private_party_price,
         AVG(dealer_detail_price_amount) AS avg_dealer_price
@@ -48,8 +48,8 @@ silver_fact_vehicle_value_data AS (
 
     SELECT
         vehicle_registered_year,
-        "brand_name" as dimension_type,
-        brand_name,
+        'brand name' as dimension_type,
+        brand_name as dimension_value,
         AVG(trade_in_price_amount) AS avg_trade_in_price,
         AVG(private_party_price_amount) AS avg_private_party_price,
         AVG(dealer_detail_price_amount) AS avg_dealer_price
@@ -62,8 +62,8 @@ silver_fact_vehicle_value_data AS (
 
     SELECT
         vehicle_registered_year,
-        "model_electric_flag" as dimension_type,
-        model_electric_flag,
+        'model electric flag' as dimension_type,
+        model_electric_flag as dimension_value,
         AVG(trade_in_price_amount) AS avg_trade_in_price,
         AVG(private_party_price_amount) AS avg_private_party_price,
         AVG(dealer_detail_price_amount) AS avg_dealer_price
